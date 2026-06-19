@@ -1,0 +1,109 @@
+@import '@afs/styles/settings/settings';
+@import '@afs/styles/tools/tools';
+
+// ==========================================================================
+// Field Phone Number
+// ==========================================================================
+
+// Label
+
+.requiredLabel {
+  &::after {
+    display: inline;
+    content: ' *';
+    color: $colour-error;
+  }
+}
+
+// Input
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  padding: 0 17px 0 138px !important;
+}
+
+// Dialling Code Menu
+
+.diallingCodeToggle {
+  @include responsiveSize('height', 48px, 56px);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 16px 0 0;
+  border: none;
+  background-color: transparent;
+
+  :global(.user-is-tabbing) &:focus {
+    border-top-left-radius: gutter(1);
+    border-bottom-left-radius: gutter(1);
+  }
+}
+
+.diallingCodeToggleSmall {
+  height: 48px;
+}
+
+.diallingCodeToggleInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: -16px;
+    display: block;
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: $colour-cool-grey-300;
+  }
+}
+
+.flagIcon {
+  width: gutter(2.5);
+  height: gutter(2.5);
+  margin-left: gutter(2);
+  margin-right: gutter(1);
+}
+
+.diallingCode {
+  @include p-normal;
+
+  width: gutter(5);
+  margin-right: gutter(1);
+  color: $colour-cool-grey-700;
+  line-height: normal;
+  text-align: left;
+}
+
+.chevron {
+  width: gutter(2);
+  height: gutter(2);
+  margin-left: auto;
+  transform: rotate(0);
+  transform-origin: center center;
+
+  @include with-motion {
+    transition: transform 0.3s map-get($core-interactions, 'easing');
+  }
+}
+
+.chevronRotated {
+  transform: rotate(180deg);
+
+  @include with-motion {
+    transition: transform 0.3s map-get($core-interactions, 'easing');
+  }
+}
+
+// Autocomplete
+
+.autocompleteOpen {
+  visibility: visible;
+}

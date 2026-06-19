@@ -1,0 +1,65 @@
+@import '@afs/styles/settings/settings';
+@import '@afs/styles/tools/tools';
+
+// ==========================================================================
+// Guarantor Details
+// ==========================================================================
+
+// Shared
+
+.wrapper {
+  margin-bottom: gutter(3);
+  padding: gutter(3);
+  border-radius: 16px;
+  background-color: #f7f4f380;
+}
+
+// Guarantor Details
+
+.guarantorDetails {
+  margin-bottom: 0;
+}
+
+.detailLabel {
+  @include font('xs');
+
+  margin-bottom: 0;
+  color: $colour-cool-grey-500;
+}
+
+.detailValue {
+  @include font('s');
+
+  margin-bottom: gutter(1.5);
+  color: $colour-cool-grey-800;
+  font-style: normal;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.addressLine {
+  display: block;
+}
+
+.editLink {
+  margin-top: gutter(2);
+}
+
+// No Guarantor Text
+
+.headingSmall {
+  @include font('xs');
+
+  margin-bottom: gutter(1);
+  font-weight: 700;
+}
+
+.paragraph {
+  @include font('xs', false);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

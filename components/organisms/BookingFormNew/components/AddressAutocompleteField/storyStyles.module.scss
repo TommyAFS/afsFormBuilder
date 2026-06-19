@@ -1,0 +1,93 @@
+@import '@afs/styles/settings/settings';
+@import '@afs/styles/tools/tools';
+
+// ==========================================================================
+// Address Autocomplete Field
+// ==========================================================================
+
+// Input
+
+.inputWrapper {
+  position: relative;
+  z-index: 10;
+}
+
+.input {
+  @include p-normal;
+
+  padding-left: gutter(6) !important;
+  padding-right: gutter(5.5) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @include below(medium) {
+    padding-bottom: gutter(1.5) !important;
+  }
+
+  @include above(medium) {
+    padding-bottom: gutter(2.25) !important;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  top: 74%;
+  left: 18px;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-74%);
+
+  & path {
+    fill: $colour-cool-grey-900;
+  }
+}
+
+// Menu wrapper
+
+.dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 425px;
+  margin-bottom: 0;
+  padding-top: gutter(2.5);
+  padding-bottom: gutter(2);
+  border-left: border('bravo');
+  border-right: border('bravo');
+  border-bottom: border('bravo');
+  border-bottom-left-radius: map-get($core-borders, 'radius');
+  border-bottom-right-radius: map-get($core-borders, 'radius');
+  background: $colour-white;
+  transform: translateY(-6px);
+  overflow-y: auto;
+}
+
+// Clear button
+
+.clearButton {
+  box-sizing: content-box;
+  position: absolute;
+  top: 74%;
+  right: 12px;
+  width: 18px;
+  height: 18px;
+  padding: 6px;
+  border: none;
+  background: none;
+  transform: translateY(-74%);
+
+  & > svg > g > path {
+    transition: map-get($core-interactions, 'transition');
+  }
+
+  &:hover > svg > g > path {
+    fill: $colour-cool-grey-600;
+  }
+}
+
+.clearIcon {
+  width: 18px;
+  height: 18px;
+}

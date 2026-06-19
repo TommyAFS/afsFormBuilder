@@ -1,0 +1,98 @@
+@import '@afs/styles/settings/settings';
+@import '@afs/styles/tools/tools';
+
+// ==========================================================================
+// Config styles
+// ==========================================================================
+
+@mixin body-text {
+  @include font('s', false);
+
+  color: $colour-cool-grey-700;
+}
+
+.overlayHeader {
+  padding: 20px 32px;
+}
+
+.overlayContent {
+  padding: 0 32px 24px;
+}
+
+.overlayFooter {
+  padding: 20px 24px;
+}
+
+.mainHeading {
+  @include font('l', false);
+
+  margin-bottom: gutter(2);
+}
+
+.heading {
+  @include font('s', false);
+
+  margin-bottom: gutter(1);
+}
+
+.mainHeading,
+.heading {
+  color: $colour-cool-grey-800;
+}
+
+.copy {
+  @include body-text;
+
+  margin-bottom: gutter(3);
+  font-weight: 400;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.copyList {
+  @include body-text;
+
+  margin-bottom: gutter(1.75);
+}
+
+.copyListIntro {
+  @include body-text;
+
+  margin-bottom: gutter(0.75);
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.checklist {
+  margin: 0 0 gutter(1.75);
+  padding: 0;
+  list-style: none;
+}
+
+.checklistItem {
+  @include body-text;
+
+  display: flex;
+  margin-bottom: gutter(1);
+  font-weight: 400;
+  gap: gutter(1.25);
+
+  &::before {
+    content: '';
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath stroke='%23fa5d00' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m2.666 8.21 3.771 3.77L14 4.418'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.closeBtn {
+  width: 100%;
+}

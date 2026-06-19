@@ -1,0 +1,32 @@
+.fieldLabel {
+  margin-bottom: 0.375rem;
+  color: #374151;
+  font-size: 14px;
+}
+
+.inputs {
+  display: flex;
+  gap: 16px;
+}
+
+.inputs > :nth-child(1),
+.inputs > :nth-child(2),
+.inputs > :nth-child(3) {
+  flex: 1;
+}
+
+.inputs :global(.form-field__label--before-input) {
+  margin-left: 0;
+  font-size: 14px;
+}
+
+.error {
+  margin: 0.25rem 0;
+  color: #dc2626;
+  font-size: 0.8125rem;
+  white-space: pre-line;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}

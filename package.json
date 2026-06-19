@@ -1,0 +1,44 @@
+{
+  "name": "afsformbuilder",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.tsx",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "author": "Tommy Scribble",
+  "description": "Reusable in-house form builder (local dev sandbox)",
+  "dependencies": {
+    "@afs/components": "6.12.14",
+    "@afs/styles": "1.7.2",
+    "@sentry/nextjs": "^10.59.0",
+    "classnames": "^2.5.1",
+    "dompurify": "^3.4.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/nextjs": "^8.6.14",
+    "@svgr/webpack": "^8.1.0",
+    "@testing-library/react": "^13.4.0",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "next": "^14.2.30",
+    "sass": "^1.77.0",
+    "storybook": "^8.6.14",
+    "typescript": "^5.4.5"
+  },
+  "license": "MIT",
+  "volta": {
+    "node": "20.19.6",
+    "npm": "10.8.2"
+  }
+}

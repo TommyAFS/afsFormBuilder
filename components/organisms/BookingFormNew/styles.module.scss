@@ -1,0 +1,218 @@
+@import '@afs/styles/settings/settings';
+@import '@afs/styles/tools/tools';
+
+// ==========================================================================
+// Booking Form New
+// ==========================================================================
+
+.formBase {
+  display: flex;
+  flex-direction: column;
+  gap: gutter(2);
+}
+
+.card {
+  padding: gutter(2) gutter(2) gutter(4);
+  border: 1px solid $colour-cool-grey-200;
+  border-radius: 16px;
+  background-color: $colour-white;
+
+  @include above(xlarge) {
+    padding: gutter(3) gutter(3) gutter(4);
+  }
+}
+
+.cardCompleted {
+  padding: gutter(2);
+}
+
+.cardUntouched {
+  padding: 16px;
+  color: $colour-cool-grey-500;
+
+  .legend {
+    min-height: fit-content;
+    margin-bottom: 0;
+    align-self: center;
+  }
+
+  .legendTitle {
+    font-weight: 400;
+  }
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  gap: gutter(1);
+  min-inline-size: 0;
+}
+
+.legend {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 32px;
+  margin-bottom: gutter(0.75);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.fieldset .editButton {
+  @include font('2xs');
+
+  width: 48px;
+  height: auto;
+  padding: gutter(1);
+}
+
+.fields {
+  display: block;
+}
+
+.stepSubTitle {
+  @include font('xs', false);
+
+  margin-bottom: gutter(3);
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.summaryItem {
+  @include font('xs');
+
+  padding-right: gutter(2.5);
+  color: $colour-cool-grey-700;
+
+  &:last-of-type {
+    padding-right: 0;
+  }
+}
+
+.stepButton {
+  width: 100%;
+
+  @include above(xlarge) {
+    max-width: 303px;
+  }
+}
+
+.input,
+.inputPhone,
+.inputDob,
+.inputCountry,
+.inputSelect {
+  margin-bottom: gutter(2);
+
+  &:last-of-type {
+    margin-bottom: gutter(3);
+  }
+
+  p:not.error {
+    color: $colour-cool-grey-700;
+  }
+
+  label {
+    @include font('xs', false);
+
+    margin-left: 0;
+    margin-bottom: gutter(0.5);
+    color: $colour-cool-grey-700;
+  }
+}
+
+.inputAddress,
+.inputCountry {
+  margin-bottom: gutter(5);
+}
+
+.inputPhone ~ .inputCountry {
+  margin-bottom: gutter(2);
+}
+
+.inputDob:has(~ .inputAddress) {
+  margin-bottom: gutter(5);
+}
+
+.fields .inputRadioMainLabel {
+  @include font('s');
+
+  margin-bottom: gutter(2);
+
+  &:has(~ p) {
+    margin-bottom: gutter(1);
+  }
+
+  ~ p {
+    @include font('xs', false);
+
+    margin-bottom: gutter(3);
+  }
+}
+
+.inlineRadioWrapper {
+  margin-bottom: gutter(3);
+
+  &:has(~ .inputSelect) {
+    margin-bottom: gutter(5);
+  }
+}
+
+.blockRadioWrapper {
+  margin-bottom: gutter(2);
+}
+
+.blockRadioWrapper:has(~ .inlineRadioWrapper),
+.blockRadioWrapper:has(~ .inputSelect) {
+  margin-bottom: gutter(5);
+}
+
+.input,
+.inputPhone,
+.inputDob,
+.inputCountry,
+.inputSelect,
+.inputAddress,
+.inlineRadioWrapper,
+.blockRadioWrapper {
+  scroll-margin-top: gutter(8);
+}
+
+// Nested inputs
+
+.fields input {
+  scroll-margin-top: gutter(8);
+}
+
+.fields .inputRadio {
+  grid-template-columns: 1fr 1fr;
+}
+
+.submitButton {
+  display: flex;
+  flex-direction: column;
+  padding-top: gutter(1);
+  scroll-margin-bottom: gutter(2);
+}
+
+.submitButtonControl {
+  width: 100%;
+
+  @include above(xlarge) {
+    max-width: 300px;
+  }
+}
+
+.submitButtonHidden {
+  visibility: hidden;
+}

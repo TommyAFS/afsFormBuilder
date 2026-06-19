@@ -1,0 +1,414 @@
+@import '@afs/styles/settings/settings';
+@import '@afs/styles/tools/tools';
+
+// ==========================================================================
+// Address Autocomplete Field
+// ==========================================================================
+
+// Field
+
+.field {
+  position: relative;
+  text-align: left;
+  z-index: 10;
+
+  &:focus-within {
+    z-index: 99;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+// Label
+
+.combobox .searchLabel {
+  @include font('xs', false);
+
+  margin-bottom: gutter(0.5);
+  color: $colour-cool-grey-700;
+}
+
+.required {
+  &::after {
+    display: inline;
+    content: ' *';
+    color: $colour-error;
+  }
+}
+
+.waiting {
+  color: $colour-cool-grey-300;
+}
+
+// Menu
+// ==========================================================================
+
+.menu {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity map-get($core-interactions, 'timing') map-get($core-interactions, 'easing');
+  pointer-events: none;
+  touch-action: none;
+}
+
+.menuOpen {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  touch-action: auto;
+}
+
+// Empty state
+
+.emptyItem {
+  @include p-normal;
+
+  padding: gutter(1.5) gutter(3) gutter(2);
+  background-color: $colour-cool-grey-100;
+
+  @include below(xsmall) {
+    padding-left: gutter(2);
+    padding-right: gutter(2);
+  }
+}
+
+.emptyItemText {
+  display: inline-block;
+  max-width: 330px;
+}
+
+.emptyItemBoldText {
+  color: $colour-cool-grey-900;
+  font-weight: 500;
+}
+
+// No matches state
+
+.noMatchesItem {
+  @include p-normal;
+
+  margin-bottom: gutter(0.5);
+  padding: gutter(2.5) gutter(3) gutter(3);
+  border-radius: gutter(0.5);
+  background: rgb(255 240 208 / 50%);
+  color: $colour-cool-grey-700;
+
+  @include below(xsmall) {
+    padding-left: gutter(2);
+    padding-right: gutter(2);
+  }
+}
+
+.noMatchesHeading {
+  display: block;
+  margin-bottom: gutter(0.25);
+  color: $colour-cool-grey-800;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.noMatchesText {
+  display: block;
+  color: $colour-cool-grey-800;
+  line-height: 1.7;
+}
+
+// Error States
+
+.errorItem {
+  @include p-normal;
+
+  margin-top: gutter(0.25);
+  margin-bottom: gutter(0.5);
+  padding: gutter(3);
+  background: rgb(255 239 239 / 50%);
+
+  @include below(xsmall) {
+    padding-left: gutter(2);
+    padding-right: gutter(2);
+  }
+}
+
+.errorItemAddressApi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: gutter(4.25);
+  border-radius: gutter(1);
+}
+
+.errorHeading {
+  display: block;
+  margin-bottom: gutter(0.25);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.errorText {
+  display: block;
+  color: $colour-cool-grey-800;
+  line-height: 1.7;
+}
+
+.closeIcon {
+  width: gutter(2.5);
+  height: gutter(2.5);
+  transform: translateY(3px);
+}
+
+// Suggestion list
+
+.list {
+  margin: 0;
+}
+
+// Suggestion list item
+
+.item {
+  @include p-normal;
+
+  display: flex;
+  align-items: center;
+  padding: gutter(1) gutter(3);
+  background-color: $colour-white;
+  list-style: none;
+  transition: background-color map-get($core-interactions, 'easing') map-get($core-interactions, 'timing');
+  cursor: pointer;
+
+  @include below(xsmall) {
+    padding: gutter(1) gutter(2);
+  }
+}
+
+.itemHighlighted {
+  background-color: #fef4df;
+}
+
+.listItemText {
+  @include p-normal;
+
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color map-get($core-interactions, 'easing') map-get($core-interactions, 'timing');
+}
+
+// Suggested item - Search by text fallback item
+
+.suggestedItemText {
+  color: $colour-cool-grey-800;
+}
+
+.suggestedItemMatchedText {
+  color: $colour-cool-grey-900;
+  font-weight: 500;
+}
+
+.suggestedItemSecondaryText {
+  color: $colour-cool-grey-500;
+
+  .itemHighlighted & {
+    color: $colour-cool-grey-600;
+  }
+}
+
+// Icons
+
+.iconWrapper {
+  @include border-radius;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: gutter(5);
+  height: gutter(5);
+  margin-right: gutter(1.5);
+  background-color: rgba($colour-bravo-light, 0.15);
+  transition: background-color map-get($core-interactions, 'easing') map-get($core-interactions, 'timing');
+
+  .itemHighlighted & {
+    background-color: $colour-white;
+  }
+}
+
+.cityIcon,
+.universityIcon,
+.mapPinIcon {
+  flex-shrink: 0;
+  visibility: visible; // Safari fix for disappearing SVGs when menu visibility is updated to visible
+
+  path {
+    fill: $colour-bravo-dark;
+  }
+}
+
+.cityIcon,
+.universityIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.mapPinIcon {
+  width: 15px;
+  height: 22px;
+}
+
+// ==========================================================================
+// Address Autocomplete Field
+// ==========================================================================
+
+// Combobox
+
+.combobox {
+  position: relative;
+  z-index: 10;
+}
+
+input.input {
+  @include p-normal;
+
+  height: 48px;
+  padding-left: gutter(5.75);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &::placeholder {
+    font-size: 16px;
+  }
+}
+
+input.input.inputWithClearButton {
+  padding-right: 50px;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: gutter(2);
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+
+  & path {
+    fill: $colour-cool-grey-900;
+  }
+}
+
+.searchIconWaiting {
+  & path {
+    fill: $colour-cool-grey-300;
+  }
+}
+
+// Menu wrapper
+
+.dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-height: 425px;
+  margin-bottom: 0;
+  padding-top: gutter(3.5);
+  padding-bottom: gutter(2);
+  border-left: border('bravo');
+  border-right: border('bravo');
+  border-bottom: border('bravo');
+  border-bottom-left-radius: map-get($core-borders, 'radius');
+  border-bottom-right-radius: map-get($core-borders, 'radius');
+  background: $colour-white;
+  transform: translateY(-22px);
+  overflow-y: auto;
+}
+
+// Clear button
+
+.clearButton {
+  box-sizing: content-box;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  padding: 6px;
+  border: none;
+  background: none;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  touch-action: none;
+
+  & > svg > g > path {
+    transition: map-get($core-interactions, 'transition');
+  }
+
+  &:hover > svg > g > path {
+    fill: $colour-cool-grey-600;
+  }
+}
+
+.clearButtonVisible {
+  opacity: 1;
+  pointer-events: initial;
+  touch-action: initial;
+}
+
+.clearIcon {
+  width: 20px;
+  height: 20px;
+}
+
+// Google logo
+
+.googleLogo {
+  display: block;
+  width: 136px;
+  height: 17px;
+  margin: gutter(2.25) 0 gutter(0.75) gutter(3);
+
+  @include below(xsmall) {
+    margin-left: gutter(2);
+  }
+}
+
+// Link button
+
+.manualAddressLinkButton {
+  margin-top: gutter(2);
+  color: $colour-cool-grey-800;
+  font-size: 14px;
+}
+
+.manualAddressLinkButtonWaiting {
+  color: $colour-cool-grey-300;
+  pointer-events: none;
+  touch-action: none;
+}
+
+.dropdownLinkButton {
+  width: 100%;
+  margin-top: gutter(1.25);
+  padding: gutter(2) gutter(3) 3px;
+  border-top: 1px solid $colour-cool-grey-200;
+  color: $colour-cool-grey-800;
+
+  @include below(xsmall) {
+    padding-left: gutter(2);
+    padding-right: gutter(2);
+  }
+
+  @include above(345px) {
+    text-align: left;
+  }
+
+  & span {
+    @include below(345px) {
+      white-space: nowrap;
+    }
+  }
+}

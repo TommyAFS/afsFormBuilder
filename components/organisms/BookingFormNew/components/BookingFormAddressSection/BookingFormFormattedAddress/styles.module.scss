@@ -1,0 +1,55 @@
+@import '@afs/styles/settings/settings';
+@import '@afs/styles/tools/tools';
+
+// ==========================================================================
+// Booking Form Formatted Address
+// ==========================================================================
+
+.addressWrapper {
+  margin-bottom: gutter(5);
+}
+
+.addressHeading {
+  @include heading(h6);
+
+  display: inline-block;
+  margin-bottom: gutter(2.25);
+  color: $colour-cool-grey-800;
+}
+
+.address {
+  margin-bottom: gutter(3);
+
+  span {
+    margin-bottom: gutter(0.25);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Link button
+
+.manualAddressLinkButton {
+  margin-bottom: gutter(3);
+  color: $colour-cool-grey-800;
+  font-size: 14px;
+}
+
+// Search button
+
+.addressWrapper .addressSearchButton {
+  display: flex;
+  font-size: 14px;
+}
+
+.buttonIcon {
+  width: 18px;
+  height: 18px;
+  margin-right: gutter(1);
+
+  & path {
+    fill: $colour-white;
+  }
+}

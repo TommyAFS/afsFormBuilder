@@ -1,0 +1,39 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# storybook
+storybook-static/
+
+# build / cache
+*.tsbuildinfo
+next-env.d.ts
+
+# env / secrets
+.env*
+# .npmrc is intentionally committed — it holds only config + a ${NPM_TOKEN}
+# env-var reference, no plaintext secret. Keep the real token in your shell env.
+
+# logs
+*.log
+
+# os
+.DS_Store
+
+# machine-specific symlinks into the real repo (recreate via setup, see README)
+/api
+/constants
+/contexts
+/hooks
+/logging
+/models
+/svgs
+/test
+/types
+/utils
+/components/atoms
+/components/molecules
+/public
